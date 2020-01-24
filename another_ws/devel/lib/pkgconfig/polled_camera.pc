@@ -1,0 +1,8 @@
+prefix=/home/giorgio/another_ws/devel
+
+Name: polled_camera
+Description: Description of polled_camera
+Version: 1.11.13
+Cflags: -I/home/giorgio/another_ws/devel/include -I/home/giorgio/another_ws/src/image_common/polled_camera/include
+Libs: -L/home/giorgio/another_ws/devel/lib -lpolled_camera
+Requires: image_transport message_runtime roscpp sensor_msgs std_msgs
