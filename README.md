@@ -47,3 +47,10 @@ How to set up and use another_ws
      v. Tab 5 (cd src/beginner_tutorials/script) "python flagger.py"
 
     Reset 4.iii, 4.iv, 4.v everytime you update a person, either new or existing
+
+visitorlog.dx.am folder system requirement and description
+
+The folder visitorlog.dx.am is currently hosted on AWARDSPACE that is a free hosting website. It contains code that parses, scrapes and manipulates the google sheet database. It is ALREADY hosted and does not need to be touched. IF to be replicated, do change the google sheets ID and make your own. The current databases are:
+Visitor Database - to log in informations about visitors and keep it
+Flags - as a flag that can be manipulated from buttons on the website and will signal ROS codes to turn on (e.g camera)
+Contact Email - to add emails of employees so visitors can contact them when they come over using automated email
