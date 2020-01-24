@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=kLG9VKfHryc&t=5s
 ## TLDR
 To use this system you need linux and ros, both accessible by many computers. To use it, go to www.visitorlog.dx.am and clone this repo, and get all the packages mentioned in "another_ws sytem requirement" below as well as open 5 command line tabs and follow all the command lines needed. This will allow usage like in the video with link above.
 
-The system can be described in 2 parts that is:
+## Stack used in 2 parts that is:
 
     [facelog]
     The website that runs on:
