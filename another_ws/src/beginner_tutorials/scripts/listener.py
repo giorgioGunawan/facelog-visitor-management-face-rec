@@ -7,7 +7,7 @@ from pprint import pprint
 
 def printThis(visitor, row):
     scope =  ["https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("gDriveVincent.json",scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name("gDrivePublic.json",scope)
 
     client = gspread.authorize(creds)
     sheet = client.open("JFC Project Web App").sheet1

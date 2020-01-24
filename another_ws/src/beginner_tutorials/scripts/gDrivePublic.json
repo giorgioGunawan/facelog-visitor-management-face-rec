@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "group-9-jfc-project-baxter",
+  "private_key_id": "96670115874b0ccfb252d9719c045de1a769e850",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLOBPwk3IyoOlC\nSMinuA+5ZeXfa6JuPVEeloCsQKS3TqyT3o1qYIKCUK4nngLEgT+CABZN5iuF9nbj\n1n6Vch5SdfHtCGkLhqWaropESP0hWULUvdtcsgkmG73K+ms2pHMOCKu8AhUKiK+S\npt2mR9nMryur447rnS/CADNsAzgTMEeRvKEITQSPSwLZWmoZ9I4TzgY5QpEa1Jjz\ntffb9m2D2U/1PMX9FRixA6NXY6LNPilKYy+wByF8K+5k5/mF0ezxukZHfATRzJyu\nP2DOQqUZewu9AaSM+0yUJfVWufZ8XuClkq+DC0Bk6mASekWqWFzHtOHgd1koCUKE\n3oITzfkZAgMBAAECggEAMW8niJTxiWfTvjxS1VvEtXKYb9gwx9TSJBjz3ZMPDolM\nmV7gszEdZkJmjvwUy8TuFDtdsZ7tVPXet29A1S1Qu3n1+xVZ6kQbikxtlY1UyDU8\nuOAjWcH0UEkcyuDOTllEJLSOxBoUkL6tyQSe8/lT/cLZ4oMlS+LtkGl4mMySqjXb\n/JA7FrW0kztR6keXN3YVVMuDe6JbVwBC3XEN4sR4rZe08KIOiff5CUFaYSK3U2lI\nBIl6rIDJ7N3p8Ls7Ne3RzHuXaZNgJ6hDAD6LTE4vIF2PP6kjDU3DIwSbfYFhYJGt\nVH3ZJz3QnLXTtq7aMnaOgw3trLq+X0/pb1uwTd6dZQKBgQDw5nF3tyE+vzmwFtwd\ncYp3Vjx3z53hLeZ/aXTHwVfKySFlQ9fr8TeapzsUJ52P2rDBnLQ4yJ03s75uvxEI\naRq7pesvGFBG7IooJxdWTE+bb1ZyhXsaR48GlKXLeLXj/nh6tPLA4PZHdzL8UGU9\nTgo7UO0bXujV87t2cD+BE5yTxQKBgQDX9P38AajHgwwfRbX8B697jOEbYxs1GLC+\nlJv7fSpnrufXWoxthrhvO65qMHNdNZ/u2WfClVmhsC7LnqSUvHa1Sq26Uom0io/C\neiowKG0xFguic2EhM23Q4gKiY3GNoxfnCgmgmRkW7raDALQAFvRvdKlj3AhVp68N\nYUJ+03LhRQKBgDAWL+wvuAkobsGBrqqJ8ZPkuOlJnkBGw04HpPIC3B10jKAELOPC\nINFUNGzPg5olk0bymt8C3K8zx/2fUi0Vnep7MjkSZ2Pg76sYMoZdcT6buOvfTTVv\nt1Me9QFqtRQvxajo2dQ6k66sUpcfDTZxj4VLoCjohx2+K1t3CJYhbg3pAoGAZ6uH\nhcOyJ1zEo/qOG1gBKNl/cutHs1yP9F1Y6Ai1I6L2Tw573VRQE63d08JAj11f0oRx\naBrUNWdjf4I/1dsHTY51Cb33t0DRNHX67LVrfaXsneavmQWcUSs+QoBkka7amaHa\n70qvna+o1AixYF2kqCCj9Hk7Uws1YMHw7vtI6dUCgYEAlk+YXIuaIGSB20+jnj1q\nDPgpni4Rp0fnXl1yJ9OVx4LUwXl/5Azi1XPfvJhSJcOCSwkUiud+MP28/2Jj1GhV\nzm4DGyEuD0+NJ5umv8vmRLuypa+zeLjYIabKuL0S7HtLMtd24UV6ThJc4sIjV5Fy\n+PrCGIMSC1+iD7d5Hb4N5QY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "group9webapp@group-9-jfc-project-baxter.iam.gserviceaccount.com",
+  "client_id": "101797287208780696791",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/group9webapp%40group-9-jfc-project-baxter.iam.gserviceaccount.com"
+}
