@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <meta charset="utf-8">
+      <title>FACELOG new visitor</title>
+      <link rel="stylesheet" type="text/css" href="WebStyle.css">
+  </head>
+  <body onload="loadData()">
+   
+  <div class= "toptitle">
+      <img class = "left" src="FACELOG2.png" alt="FACELOG" width="270" height="81">
+  </div> 
+  <ul>
+    <li><a style="font-family:verdana;" href="main.html">Home</a></li>
+    <li><a style="font-family:verdana;" class = "active" href="visitor-log.html">Visitor Log In</a></li>
+    <li><a style="font-family:verdana;" href="loginpage.php">Visitors Details</a></li>
+    <li><a style="font-family:verdana;" href="loginpageemail.php">Contact Email</a></li>
+  </ul>
+    <form action="/visitor-log.html">
+       <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="gobackbtn">Go Back</button>
+    </form>
+  <h1 style="font-family:verdana;">Log in</h1>
+  
+  <p style="font-family:verdana; font:18px">Please fill in this form to register as an new visitor</p>
+        <form id="test-form">
+          <div class="container">
+                
+                <input hidden id="dateinput" name="Date">
+                
+                <label><b>Name</b></label><br>
+                <input type="text" placeholder="Enter Name..." name="Visitor Name" id="visitorNameInput" required><br><br>
+          
+                <label><b>Company Name</b></label><br>
+                <input type="text" placeholder="Enter Company Name..." name="Company" required><br><br>
+                              
+                <!--label><b>Favourite Drink</b></label><br>
+                <input type="text" placeholder="Enter Favourite Drink..." name="Favourite Drink" required><br><br-->
+                
+                <label><b>Favourite Drink</b></label><br>
+                <select name="Favourite Drink" onclick="showInputText()" name="Favourite Drink" id="drinkoption">
+                  <option selected disabled>Please select one of your favourite drinks</option>
+                  <option disabled>----- Coffee -----</option>
+                  <option value="Cappucinno">Cappucinno</option>
+                  <option value="Latte">Latte</option>
+                  <option value="Flat White">Flat White</option>
+                  <option value="Long Black">Long Black</option>
+                  <option disabled>----- Soft drink -----</option>
+                  <option value="Sprite">Sprite</option>
+                  <option value="Coke">Coke</option>
+                  <option disabled>----- Tea -----</option>
+                  <option value="Green Tea">Green Tea</option>
+                  <option value="Black Tea">Black Tea</option>
+                  <option value="Milk Tea">Milk Tea</option>
+                  <option disabled>----- Other -----</option>
+                  <option value="Hot Chocolate">Hot Chocolate</option>
+                  <option disabled>  </option>
+                  <option value="None of the above">None of the above</option>
+                  <input class="noneoftheaboveinput" type="text" placeholder="Enter and Confirm Your Favourite Drink..." id="inputText" disabled hidden>
+                  <button class="confirmbtn" onclick="changeOptionValue();printconfirmmsg()" disabled hidden id="inputTextBtn" type="button">Confirm</button>
+                  <p class="alert" hidden style="font-family:verdana;" id="confirmmsg"></p>
+                </select><br><br>
+                <label><b>Person of Interest</b></label><br>
+                <div id="personofinterest"></div><br>
+                <input hidden type="text" id = "personofinterestinput" name="Person of Interest">
+                
+                <label><b>Visiting Purpose (e.g. who are you meeting with)</b></label><br>
+                <input type="text" placeholder="Enter Visiting Purpose (e.g. who you are visiting?)" name="Purpose of Visiting" required><br><br>
+                
+                <div align="center" class="clearfix">
+                  <button class="submitbtn" onclick="debuggingPoI()" type="submit" id="submit-form">Submit</button>
+                </div>
+          </div>
+      </form>
+      
+      <script>
+      function printconfirmmsg() {
+        document.getElementById("confirmmsg").hidden = false;
+        document.getElementById("confirmmsg").innerHTML = "Success! Your favourite drink will be remember!";
+      }
+      </script>
+      
+      <script>
+      var todaydate = new Date().getDate();
+      var todaymonth = new Date().getMonth()+1;
+      var todayyear = new Date().getFullYear();
+      document.getElementById("dateinput").value = todaydate +"/"+todaymonth+"/" + todayyear;
+      </script>      
+      <script>
+              function debuggingPoI() {
+                  var xxxx = document.getElementById("mySelect");
+                  var xxxxvalue = xxxx.options[xxxx.selectedIndex].value;
+                  document.getElementById("personofinterestinput").value = xxxxvalue;
+                }
+      </script>
+        <script>
+        function loadData() {
+          var url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbGEpYmwz0SNcQOzfP0z0iSTf5vX09CVTte8jhOZjIyZa3eeff4eNkehsjuonIALq_RE-3IgBnhxVF/pub?output=csv";
+          xmlhttp=new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if(xmlhttp.readyState == 4 && xmlhttp.status==200){
+              var stringss = xmlhttp.responseText;
+              var myDiv = document.getElementById("personofinterest");
+                
+                var seperateString = stringss.replace(/\n/g,',');
+                
+                var nameArray = seperateString.split(',');
+                var selectList = document.createElement("select");
+                selectList.setAttribute("id", "mySelect");
+                myDiv.appendChild(selectList);
+                
+                
+                //Create and append the options
+                for (var i = 2; i < nameArray.length; i+=2) {
+                    var option = document.createElement("option");
+                    //option.setAttribute("value", nameArray[i]);
+                    //option.value = nameArray[i];
+                    option.value= nameArray[i];
+                    option.text = nameArray[i];
+                    selectList.appendChild(option);
+                }
+              //var myDiv = document.getElementById("mySelectList");
+            }
+          };
+          xmlhttp.open("GET",url,true);
+          xmlhttp.send(null);
+        }
+    </script>      
+  </body>
+  
+  
+  <script>        
+  $.fn.serializeObject = function()
+  {
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function() {
+  if (o[this.name]) {
+  if (!o[this.name].push) {
+  o[this.name] = [o[this.name]];
+  }
+  o[this.name].push(this.value || '');
+  } else {
+  o[this.name] = this.value || '';
+  }
+  });
+  return o;
+  };
+  </script>
+  <script>
+  var inputVisitorName = $("#visitorNameInput"); 
+  
+  var $form = $('form#test-form'),
+      url = 'https://script.google.com/macros/s/AKfycbxssazH0qDAjZJdLC2EYxn23K26t-XuzaCZOQ3aiZQtJR6-v-U/exec'
+        
+  $('#submit-form').on('click', function(e) {
+    e.preventDefault();
+    var jqxhr = $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "json",
+      data: $form.serializeArray()
+    }).success(
+            location.href = "http://visitorlog.dx.am/new-form-flag.html?VisitorNameInput=" + inputVisitorName.val()
+    );
+  })
+  </script>
+
+  <script>
+      function showInputText() {
+      var selectindex = document.getElementById("drinkoption").selectedIndex;
+      var currentoption = document.getElementById("drinkoption").options;
+      var lastindex = document.getElementById("drinkoption").length;
+      //alert("Index: " + y[x].index + " is " + y[x].text +lastindex );
+      if (currentoption[selectindex].index == (lastindex-1)) {
+        document.getElementById("inputText").hidden = false;
+        document.getElementById("inputText").disabled = false;
+        document.getElementById("inputTextBtn").hidden = false;
+        document.getElementById("inputTextBtn").disabled = false;
+        //alert("Index: " + y[x].index + " is " + y[x].text +lastindex );
+        
+
+      }
+      else {
+        document.getElementById("inputText").hidden = true;
+        document.getElementById("inputText").disabled = true;
+        document.getElementById("inputTextBtn").hidden = true;
+        document.getElementById("inputTextBtn").disabled = true;
+        document.getElementById("confirmmasg").hidden = true;
+
+        }
+      }
+      function changeOptionValue() {
+        var selectindex = document.getElementById("drinkoption").selectedIndex;
+        var text = document.getElementById("inputText").value;
+        var lastx = document.getElementById("drinkoption").selectedIndex;
+        document.getElementsByTagName("option")[selectindex].value = text;
+        //alert(document.getElementsByTagName("option")[x].value);
+      }
+  </script>
+  
+  
+
+</html>

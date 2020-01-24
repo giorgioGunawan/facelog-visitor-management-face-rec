@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <meta charset="utf-8">
+      <title>FACELOG existing visitor</title>
+      <link rel="stylesheet" type="text/css" href="WebStyle.css">
+  </head>
+  <body onload="loadData()">
+   
+  <div class= "toptitle">
+      <img class = "left" src="FACELOG2.png" alt="FACELOG" width="270" height="81">
+  </div> 
+  <ul>
+    <li><a style="font-family:verdana;" href="main.html">Home</a></li>
+    <li><a style="font-family:verdana;" class = "active" href="visitor-log.html">Visitor Log In</a></li>
+    <li><a style="font-family:verdana;" href="loginpage.php">Visitors Details</a></li>
+    <li><a style="font-family:verdana;" href="loginpageemail.php">Contact Email</a></li>
+   </ul>
+   <form action="/visitor-log.html">
+       <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="gobackbtn">Go Back</button>
+  </form>
+  <h1 style="font-family:verdana;">Log in</h1>
+  
+  <p style="font-family:verdana; font:18px">Welcome back! Please fill in your this time visiting purpose</p>
+        <form id="test-form">
+        <div class="container">
+              <input hidden id="dateinput" name="Date">
+              <label><b>Person of Interest</b></label><br>
+                <div id="personofinterest"></div><br>
+                <input hidden type="text" id = "personofinterestinput" name="Person of Interest">
+                
+              <label><b>Visiting Purpose (e.g. who are you meeting with?)</b></label><br>
+              <input type="text" placeholder="Enter Visiting Purpose" name="Purpose of Visiting" required><br><br>
+              
+              <div align="center" class="clearfix">
+                
+                <button class="submitbtn" onclick="debuggingPoI()" type="submit" id="submit-form">Submit</button>
+              </div>
+        </div>
+      </form>
+      <script>
+      var todaydate = new Date().getDate();
+      var todaymonth = new Date().getMonth()+1;
+      var todayyear = new Date().getFullYear();
+      document.getElementById("dateinput").value = todaydate +"/"+todaymonth+"/" + todayyear;
+      </script>
+      
+      <script>
+              function debuggingPoI() {
+                  var xxxx = document.getElementById("mySelect");
+                  var xxxxvalue = xxxx.options[xxxx.selectedIndex].value;
+                  document.getElementById("personofinterestinput").value = xxxxvalue;
+                }
+      </script>
+        <script>
+        function loadData() {
+          var url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbGEpYmwz0SNcQOzfP0z0iSTf5vX09CVTte8jhOZjIyZa3eeff4eNkehsjuonIALq_RE-3IgBnhxVF/pub?output=csv";
+          xmlhttp=new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if(xmlhttp.readyState == 4 && xmlhttp.status==200){
+              //document.getElementById("personofinterest").innerHTML = xmlhttp.responseText;
+              var stringss = xmlhttp.responseText;
+              var myDiv = document.getElementById("personofinterest");
+
+                var seperateString = stringss.replace(/\n/g,',');
+                var nameArray = seperateString.split(',');
+                var selectList = document.createElement("select");
+                selectList.setAttribute("id", "mySelect");
+                myDiv.appendChild(selectList);
+                
+                
+                //Create and append the options
+                for (var i = 2; i < nameArray.length; i+=2) {
+                    var option = document.createElement("option");
+                    option.value= nameArray[i];
+                    option.text = nameArray[i];
+                    selectList.appendChild(option);
+                }
+
+            }
+          };
+          xmlhttp.open("GET",url,true);
+          xmlhttp.send(null);
+        }
+    </script>
+  </body>
+  
+  
+  <script>        
+  $.fn.serializeObject = function()
+  /{
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function() {
+  if (o[this.name]) {
+  if (!o[this.name].push) {
+  o[this.name] = [o[this.name]];
+  }
+  o[this.name].push(this.value || '');
+  } else {
+  o[this.name] = this.value || '';
+  }
+  });
+  return o;
+  };
+  </script>
+  <script>
+  
+  var $form = $('form#test-form'),
+      url = 'https://script.google.com/macros/s/AKfycbxssazH0qDAjZJdLC2EYxn23K26t-XuzaCZOQ3aiZQtJR6-v-U/exec'
+        
+  $('#submit-form').on('click', function(e) {
+    e.preventDefault();
+    var jqxhr = $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "json",
+      data: $form.serializeArray()
+    }).success(
+             location.href = "http://visitorlog.dx.am/old-visitor-flag.html"
+    );
+  })
+  </script>
+  
+  
+</html>

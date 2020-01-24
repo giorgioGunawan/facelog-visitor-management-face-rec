@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <meta charset="utf-8">
+      <title>FACELOG visitor log</title>
+      <link rel="stylesheet" type="text/css" href="WebStyle.css">
+  </head>
+  <body>
+  <div style="background-color: #3B64B1;
+          color:white;
+          padding-top: 20px;
+          padding-right: 30px;
+          padding-bottom: 10px;
+          padding-left: 20px;">
+      <img class = "left" src="FACELOG2.png" alt="FACELOG" width="270" height="81">
+  </div> 
+   <ul>
+    <li><a style="font-family:verdana;" href="index.php">Home</a></li>
+    <li><a style="font-family:verdana;" class = "active" href="visitor-log.html">Visitor Log In</a></li>
+    <li><a style="font-family:verdana;" href="loginpage.php">Visitors Details</a></li>
+    <li><a style="font-family:verdana;" href="loginpageemail.php">Contact Email</a></li>
+    <!--ri><a style="font-family:verdana;" href = "index.php">Log Out</a></ri-->
+   </ul>
+   
+  
+  <div align="center" =>
+  <h2 style="font-family:verdana;">Welcome to visitor log page!</h2>
+  <!--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">I've never been here</button>-->
+  <form action="/new-visitor-form.html">
+    <button class="newvisitorbtn" type="submit">I've never been here</button>
+  </form>
+  
+  <form action="/existing-visitor-form.html">
+    <button class="oldvisitorbtn" type="submit">I've been here before</button>
+  </form>
+  </div>
+</html>

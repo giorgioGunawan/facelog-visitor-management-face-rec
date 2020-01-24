@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FACELOG waiting for camera</title>
+<style>
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 50px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+<meta charset="utf-8">
+</head>
+
+<body onload="myFunction()" style="margin-top:200px;">
+
+<div style="display:block;font-family:verdana;" id="myDiv" class="animate-bottom">
+  <h2>Please wait for the camera to come up . . . </h2>
+  <p></p>
+</div>
+
+<div id="loader"></div>
+
+<div align="center" style="display:none;margin-top=100px;font-family:verdana;" id="done" class="animate-bottom">
+  <h2>Completed!</h2>
+  <p style="font=18px">Your data has been submitted to our system!</p>
+  <p style="font=18px">You will soon be redirected to our home page, or...<br \>
+  you can click <a href="http://visitorlog.dx.am/visitor-log.html">Here</a> to return</p>
+</div>
+
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 8000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "none";
+  document.getElementById("done").style.display = "block";
+  
+  wait2();
+  //location.href = "http://visitorlog.dx.am/visitor-log.html";
+}
+
+function wait2() {
+  myVar = setTimeout(returnHome, 5000);
+}
+
+function returnHome() {
+  location.href = "http://visitorlog.dx.am/visitor-log.html";
+}
+</script>
+</body>
+</html>

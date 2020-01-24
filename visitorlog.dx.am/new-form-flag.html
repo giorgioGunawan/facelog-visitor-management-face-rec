@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <meta charset="utf-8">
+      <title>FACELOG new visitor</title>
+      <link rel="stylesheet" type="text/css" href="WebStyle.css">
+  </head>
+  <body>
+   
+    <div class= "toptitle">
+      <img class = "left" src="FACELOG2.png" alt="FACELOG" width="270" height="81">
+    </div> 
+    <ul>
+    <li><a style="font-family:verdana;" href="main.html">Home</a></li>
+    <li><a style="font-family:verdana;" class = "active" href="visitor-log.html">Visitor Log In</a></li>
+    <li><a style="font-family:verdana;" href="loginpage.php">Visitors Details</a></li>
+    <li><a style="font-family:verdana;" href="loginpageemail.php">Contact Email</a></li>
+    </ul>
+        <h2 align="center" style="font-family:verdana;">Form has been successfully submitted!</h2>
+
+        <form id="test-form">
+        <div class="container">
+
+              <input hidden name="binary" value="1">
+        
+              <input hidden name="type" value="new">
+              
+              <input hidden id="visitorNameID" name="name">
+        </div>
+      </form>
+     
+      <p style="font-family:verdana;" align="center">The system will soon remember you face...<br />Please click on the camera when you are ready</p>
+      <div>
+        <img align ="center" class = "center" src="cameraIcon.png" alt="FACELOG" style="width:206px; height:206px">
+      </div>
+      <script>
+         
+      var queryString = decodeURIComponent(location.search); //parsing
+      queryString = queryString.substring(18);
+      var queries = queryString.split("&");
+      var name = '';
+      for (var i = 0; i < queries.length; i++)
+      {
+        name = name + queries[i];
+      }
+      document.getElementById("visitorNameID").value = name;
+      </script>
+  </body>
+  
+  
+  <script>        
+  $.fn.serializeObject = function()
+  /{
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function() {
+  if (o[this.name]) {
+  if (!o[this.name].push) {
+  o[this.name] = [o[this.name]];
+  }
+  o[this.name].push(this.value || '');
+  } else {
+  o[this.name] = this.value || '';
+  }
+  });
+  return o;
+  };
+  </script>
+  <script>
+  var $form = $('form#test-form'),
+      url = 'https://script.google.com/macros/s/AKfycbzE2PnKMvpM7I9cBE_0U_5VXRQWe0Mc1Tj6Z_vgWlqHyVsEXuOk/exec'
+        
+  $('img').on('click', function(e) {
+    e.preventDefault();
+    var jqxhr = $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "json",
+      data: $form.serializeArray()
+    }).success(
+            location.href = "http://visitorlog.dx.am/transitionpage.html"
+    );
+  })
+  </script>
+  
+  
+</html>
