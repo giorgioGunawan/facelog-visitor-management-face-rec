@@ -1,5 +1,5 @@
 # facelog-visitor-management-face-rec
-Facelog is a visitor management system utilising facial recognition that runs on the web at www.facelog.dx.am and has to be utilised with a ROS (robot operating sytem) program that is contained in the following workspace that is another_ws. 
+Facelog is a visitor management system utilising facial recognition that runs on the web at www.visitorlog.dx.am and has to be utilised with a ROS (robot operating sytem) program that is contained in the following workspace that is another_ws. 
 
 An example of the system in action can be seen here:
 https://www.youtube.com/watch?v=kLG9VKfHryc&t=5s
